@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+
+	"name": "Naming Wrongs",
+	"version": NamingWrongsDictionary.VERSION,
+
+	"description": "Righting naming wrongs",
+
+	"content_scripts": [
+		{
+			"matches": [
+				"http://www.espn.com/*",
+				"http://www.coinflipper.org/*"
+			],
+			"js": [
+				"wrongs.js"
+			]
+		}
+	]
+}
