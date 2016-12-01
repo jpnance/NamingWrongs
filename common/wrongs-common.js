@@ -1,25 +1,25 @@
 var wrongs = [
 	// Football Stadiums
-	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
 	[ /Sports Authority Field at Mile High/i, 'Mile High Stadium' ],
 	[ /Jones AT&T Stadium/i, 'Jones Stadium' ],
 	[ /BB&T Field/i, 'Groves Stadium' ],
 	[ /FirstEnergy Stadium/i, 'Cleveland Browns Stadium' ],
 	[ /Mercedes-Benz Superdome/i, 'The Superdome' ],
 	[ /Qualcomm Stadium/i, 'Jack Murphy Stadium' ],
+	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
 
 	// Baseball Stadiums
-	[ /Citi Field/i, 'Shea Stadium' ],
-	[ /US Cellular Field/i, 'Comiskey Park' ],
 	[ /Progressive Field/i, 'Jacobs Field' ],
 	[ /Guaranteed Rate Field/i, 'Jacobs Field' ],
 	[ /UFCU Disch-Falk Field/i, 'Disch-Falk Field' ],
 	[ /Globe Life Park/i, 'The Ballpark in Arlington' ],
+	// [ /Citi Field/i, 'Shea Stadium' ],
+	// [ /US Cellular Field/i, 'Comiskey Park' ],
 
 	// Basketball Stadiums
 	[ /Moda Center/i, 'Rose Garden' ],
-	[ /Alaska Airlines Arena at Hec Edmundson Pavilion Hec Edmundson Pavilion/i ],
-	[ /Oracle Arena/i, 'The Arena' ],
+	// [ /Alaska Airlines Arena at Hec Edmundson Pavilion Hec Edmundson Pavilion/i ],
+	// [ /Oracle Arena/i, 'The Arena' ],
 
 	// College Bowl Games
 	[ /Air Force Reserve Celebration Bowl/i, 'Celebration Bowl' ], // *
