@@ -4,13 +4,21 @@
 	"name": "Naming Wrongs",
 	"version": "1.0",
 
-	"description": "Righting naming wrongs",
+	"description": "Righting naming wrongs.",
 
 	"content_scripts": [
 		{
 			"matches": [
 				"http://www.espn.com/*",
-				"http://www.coinflipper.org/*"
+				"http://www.sbnation.com/*",
+				"http://www.si.com/*",
+				"http://www.foxsports.com/*",
+				"http://sports.yahoo.com/*",
+				"http://*.mlb.com/*",
+				"http://www.nfl.com/*",
+				"https://www.nhl.com/*",
+				"http://www.nba.com/*",
+				"http://www.ncaa.com/*"
 			],
 			"js": [
 				"wrongs.js"

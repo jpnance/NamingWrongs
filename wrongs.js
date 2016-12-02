@@ -4,7 +4,7 @@ var wrongs = [
 	[ /Jones AT&T Stadium/i, 'Jones Stadium' ],
 	[ /BB&T Field/i, 'Groves Stadium' ],
 	[ /FirstEnergy Stadium/i, 'Cleveland Browns Stadium' ],
-	[ /Mercedes-Benz Superdome/i, 'The Superdome' ],
+	[ /Mercedes-Benz Superdome/i, 'Superdome' ],
 	[ /Qualcomm Stadium/i, 'Jack Murphy Stadium' ],
 	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
 	[ /O\.co Coliseum/i, 'Oakland Coliseum' ],
