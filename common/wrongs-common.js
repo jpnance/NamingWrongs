@@ -78,9 +78,9 @@ var wrongs = [
 	[ /Royal Purple Las Vegas Bowl/i, 'Las Vegas Bowl' ]
 ];
 
-function rightTheWrongs() {
-	var walker = document.createTreeWalker(
-		document.body,
+function rightTheWrongs(root) {
+	var iterator = document.createNodeIterator(
+		root,
 		NodeFilter.SHOW_TEXT,
 		{
 			acceptNode: function(node) {
@@ -92,13 +92,12 @@ function rightTheWrongs() {
 					}
 				}
 			}
-		},
-		false
+		}
 	);
 
 	var node;
 
-	while (node = walker.nextNode()) {
+	while (node = iterator.nextNode()) {
 		for (var i = 0; i < wrongs.length; i++) {
 			var wrong = wrongs[i];
 
@@ -107,12 +106,16 @@ function rightTheWrongs() {
 			}
 		}
 	}
+
+	delete iterator;
 }
 
-document.onreadystatechange = function() {
-	if (document.readyState === 'complete') {
-		rightTheWrongs();
-	}
-};
+var observer = new MutationObserver(function(mutations, observer) {
+	mutations.forEach(function(mutation) {
+		rightTheWrongs(mutation.target);
+	});
+});
 
-setInterval(rightTheWrongs, 1000);
+observer.observe(document.body, { childList: true, subtree: true });
+
+rightTheWrongs(document.body);
