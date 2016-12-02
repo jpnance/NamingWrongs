@@ -7,19 +7,33 @@ var wrongs = [
 	[ /Mercedes-Benz Superdome/i, 'The Superdome' ],
 	[ /Qualcomm Stadium/i, 'Jack Murphy Stadium' ],
 	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
+	[ /O\.co Coliseum/i, 'Oakland Coliseum' ],
+	[ /Hard Rock Stadium/i, 'Joe Robbie Stadium' ],
+	[ /New Era Stadium/i, 'Rich Stadium' ],
 
 	// Baseball Stadiums
 	[ /Progressive Field/i, 'Jacobs Field' ],
-	[ /Guaranteed Rate Field/i, 'Jacobs Field' ],
+	[ /Guaranteed Rate Field/i, 'Comiskey Park' ],
 	[ /UFCU Disch-Falk Field/i, 'Disch-Falk Field' ],
 	[ /Globe Life Park/i, 'The Ballpark in Arlington' ],
-	// [ /Citi Field/i, 'Shea Stadium' ],
-	// [ /US Cellular Field/i, 'Comiskey Park' ],
+	[ /US Cellular Field/i, 'Comiskey Park' ],
+	[ /Rogers Centre/i, 'SkyDome' ],
+	[ /Rogers Center/i, 'SkyDome' ],
 
 	// Basketball Stadiums
 	[ /Moda Center/i, 'Rose Garden' ],
-	// [ /Alaska Airlines Arena at Hec Edmundson Pavilion Hec Edmundson Pavilion/i ],
-	// [ /Oracle Arena/i, 'The Arena' ],
+	[ /BMO Harris Bradley Center/i, 'Bradley Center' ],
+	[ /Oracle Arena/i, 'Oakland Coliseum Arena' ],
+	[ /Quicken Loans Arena/i, 'Gund Arena' ],
+	[ /Smoothie King Center/i, 'New Orelans Arena' ],
+	[ /Amalie Arena/i, 'The Ice Palace' ],
+	[ /Bridgestone Arena/i, 'Nashville Arena' ],
+	[ /Gila River Arena/i, 'Glendale Arena' ],
+	[ /PNC Arena/i, 'Raleigh Entertainment & Sports Arena' ],
+	[ /Scotiabank Saddledome/i, 'Olympic Saddledome' ],
+	[ /SAP Center/i, 'San Jose Arena' ],
+	[ /SAP Center at San Jose/i, 'San Jose Arena' ],
+	[ /Scottrade Center/i, 'Kiel Center' ],
 
 	// College Bowl Games
 	[ /Air Force Reserve Celebration Bowl/i, 'Celebration Bowl' ], // *
