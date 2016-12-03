@@ -10,4 +10,6 @@ mkdir build
 cp manifest.json build/
 cp wrongs.js build/
 
-zip build/wrongs.zip build/manifest.json build/wrongs.js
+cd build
+
+zip wrongs.zip manifest.json wrongs.js
