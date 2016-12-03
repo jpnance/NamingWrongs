@@ -2,9 +2,9 @@
 	"manifest_version": 2,
 
 	"name": "Naming Wrongs",
-	"version": "1.0",
+	"version": "1.1",
 
-	"description": "Righting naming wrongs.",
+	"description": "Righting naming wrongs. On several of the biggest sports media websites, this extension will replace the corporate-sponsored names of stadiums, arenas, and bowl games with their original and better-known names. This is not even close to complete so, if you don't see something that you think should be here or would like to see this extension work on a different site, please leave feedback and I'll be happy to add it.",
 
 	"content_scripts": [
 		{
