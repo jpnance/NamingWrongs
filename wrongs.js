@@ -84,12 +84,8 @@ function rightTheWrongs(root) {
 		NodeFilter.SHOW_TEXT,
 		{
 			acceptNode: function(node) {
-				for (var i = 0; i < wrongs.length; i++) {
-					var wrong = wrongs[i];
-
-					if (node.nodeValue.match(wrong[0])) {
-						return NodeFilter.FILTER_ACCEPT;
-					}
+				if (node.nodeValue.match(/(Arena|Bowl|Center|Centre|Coliseum|Field|Park|Saddledome|Stadium|Superdome)/i)) {
+					return NodeFilter.FILTER_ACCEPT;
 				}
 			}
 		}
