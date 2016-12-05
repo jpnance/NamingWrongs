@@ -9,7 +9,7 @@ var wrongs = [
 	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
 	[ /O\.co Coliseum/i, 'Oakland Coliseum' ],
 	[ /Hard Rock Stadium/i, 'Joe Robbie Stadium' ],
-	[ /New Era Stadium/i, 'Rich Stadium' ],
+	[ /New Era Field/i, 'Rich Stadium' ],
 
 	// Baseball Stadiums
 	[ /Progressive Field/i, 'Jacobs Field' ],
