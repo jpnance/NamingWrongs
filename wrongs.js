@@ -1,3 +1,24 @@
+var sitePatterns = [
+	/espn.com/,
+	/si.com/,
+	/foxsports.com/,
+	/sports.yahoo.com/,
+	/nbcsports.com/,
+	/cbssports.com/,
+	/sportsline.com/,
+	/sportingnews.com/,
+	/bleacherreport.com/,
+	/deadspin.com/,
+	/sbnation.com/,
+	/ftw.usatoday.com/,
+	/uni-watch.com/,
+	/mlb.com/,
+	/www.nfl.com/,
+	/www.nhl.com/,
+	/www.nba.com/,
+	/www.ncaa.com/
+];
+
 var wrongs = [
 	// Football Stadiums
 	[ /Sports Authority Field at Mile High/i, 'Mile High Stadium' ],
@@ -106,12 +127,20 @@ function rightTheWrongs(root) {
 	delete iterator;
 }
 
-var observer = new MutationObserver(function(mutations, observer) {
-	mutations.forEach(function(mutation) {
-		rightTheWrongs(mutation.target);
+function matchesHref(pattern) {
+	if (window.location.href.match(pattern)) {
+		return true;
+	}
+}
+
+if (sitePatterns.some(matchesHref)) {
+	var observer = new MutationObserver(function(mutations, observer) {
+		mutations.forEach(function(mutation) {
+			rightTheWrongs(mutation.target);
+		});
 	});
-});
 
-observer.observe(document.body, { childList: true, subtree: true });
+	observer.observe(document.body, { childList: true, subtree: true });
 
-rightTheWrongs(document.body);
+	rightTheWrongs(document.body);
+}

@@ -9,16 +9,7 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://www.espn.com/*",
-				"http://www.sbnation.com/*",
-				"http://www.si.com/*",
-				"http://www.foxsports.com/*",
-				"http://sports.yahoo.com/*",
-				"http://*.mlb.com/*",
-				"http://www.nfl.com/*",
-				"https://www.nhl.com/*",
-				"http://www.nba.com/*",
-				"http://www.ncaa.com/*"
+				"*://*/*"
 			],
 			"js": [
 				"wrongs.js"
