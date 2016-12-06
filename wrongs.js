@@ -95,6 +95,8 @@ var wrongs = [
 	[ /PlayStation Fiesta Bowl/i, 'Fiesta Bowl' ],
 
 	// Old College Bowl Games
+	[ /Ticket City Bowl/i, 'Heart of Dallas Bowl' ],
+	[ /Capital One Bowl/i, 'Citrus Bowl' ],
 	[ /BattleFrog Fiesta Bowl/i, 'Fiesta Bowl' ],
 	[ /Royal Purple Las Vegas Bowl/i, 'Las Vegas Bowl' ]
 ];
