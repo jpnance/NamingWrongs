@@ -25,7 +25,7 @@ var wrongs = [
 	[ /BMO Harris Bradley Center/i, 'Bradley Center' ],
 	[ /Oracle Arena/i, 'Oakland Coliseum Arena' ],
 	[ /Quicken Loans Arena/i, 'Gund Arena' ],
-	[ /Smoothie King Center/i, 'New Orelans Arena' ],
+	[ /Smoothie King Center/i, 'New Orleans Arena' ],
 	[ /Amalie Arena/i, 'The Ice Palace' ],
 	[ /Bridgestone Arena/i, 'Nashville Arena' ],
 	[ /Gila River Arena/i, 'Glendale Arena' ],
