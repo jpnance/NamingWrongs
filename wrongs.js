@@ -11,7 +11,6 @@ var sitePatterns = [
 	/deadspin.com/,
 	/sbnation.com/,
 	/ftw.usatoday.com/,
-	/uni-watch.com/,
 	/mlb.com/,
 	/www.nfl.com/,
 	/www.nhl.com/,
