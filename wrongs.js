@@ -29,7 +29,9 @@ var wrongs = [
 	[ /AT&T Stadium/i, 'Cowboys Stadium' ],
 	[ /O\.co Coliseum/i, 'Oakland Coliseum' ],
 	[ /Hard Rock Stadium/i, 'Joe Robbie Stadium' ],
-	[ /New Era Field/i, 'Rich Stadium' ],
+	[ /New Era Field/i, 'Ralph Wilson Stadium' ],
+	[ /M&T Bank Stadium/i, 'Ravens Stadium' ],
+	[ /FedEx Field/i, 'Jack Kent Cooke Stadium' ],
 
 	// Baseball Stadiums
 	[ /Progressive Field/i, 'Jacobs Field' ],
@@ -54,6 +56,7 @@ var wrongs = [
 	[ /SAP Center/i, 'San Jose Arena' ],
 	[ /SAP Center at San Jose/i, 'San Jose Arena' ],
 	[ /Scottrade Center/i, 'Kiel Center' ],
+	[ /EagleBank Arena/i, 'Patriot Center' ],
 
 	// College Bowl Games
 	[ /Air Force Reserve Celebration Bowl/i, 'Celebration Bowl' ], // *
@@ -95,7 +98,7 @@ var wrongs = [
 
 	// Old College Bowl Games
 	[ /Ticket City Bowl/i, 'Heart of Dallas Bowl' ],
-	[ /Capital One Bowl/i, 'Citrus Bowl' ],
+	[ /Capital One Bowl(?! Mania)/i, 'Citrus Bowl' ],
 	[ /BattleFrog Fiesta Bowl/i, 'Fiesta Bowl' ],
 	[ /Royal Purple Las Vegas Bowl/i, 'Las Vegas Bowl' ]
 ];
