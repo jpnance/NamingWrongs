@@ -32,6 +32,10 @@ var wrongs = [
 	[ /New Era Field/i, 'Ralph Wilson Stadium' ],
 	[ /M&T Bank Stadium/i, 'Ravens Stadium' ],
 	[ /FedEx Field/i, 'Jack Kent Cooke Stadium' ],
+	[ /Camping World Stadium/i, 'Citrus Bowl' ],
+	[ /Reser Stadium/i, 'Parker Stadium' ],
+	[ /EverBank Field/i, 'Jacksonville Municipal Stadium' ],
+	[ /Albertsons Stadium/i, 'Bronco Stadium' ],
 
 	// Baseball Stadiums
 	[ /Progressive Field/i, 'Jacobs Field' ],
@@ -57,6 +61,14 @@ var wrongs = [
 	[ /SAP Center at San Jose/i, 'San Jose Arena' ],
 	[ /Scottrade Center/i, 'Kiel Center' ],
 	[ /EagleBank Arena/i, 'Patriot Center' ],
+	[ /XL Center/i, 'Hartford Civic Center' ],
+	[ /Dunkin' Donuts Center/i, 'Providence Civic Center' ],
+	[ /Exactech Arena at Stephen O'Connell Center/i, 'Stephen O\'Connell Center' ],
+	[ /Exactech Arena at O'Connell Center/i, 'O\'Connell Center' ],
+	[ /CFE Arena/i, 'UCF Arena' ],
+	[ /Watsco Center/i, 'University of Miami Convocation Center' ],
+	[ /State Farm Center/i, 'Assembly Hall' ],
+	[ /Alaska Airlines Arena at Hec Edmundson Pavilion/i, 'Hec Edmundson Pavilion' ],
 
 	// College Bowl Games
 	[ /Air Force Reserve Celebration Bowl/i, 'Celebration Bowl' ], // *
