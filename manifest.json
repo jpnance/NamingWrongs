@@ -15,5 +15,9 @@
 				"wrongs.js"
 			]
 		}
+	],
+
+	"permissions": [
+		"storage"
 	]
 }
