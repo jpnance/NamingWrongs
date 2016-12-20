@@ -34,14 +34,19 @@ function updateTheWrongs(root) {
 
 		var timeSinceLastUpdate = (Date.now() - timestamp) / 1000;
 
-		if (timeSinceLastUpdate > 10 || firstUpdate) {
+		if (timeSinceLastUpdate > 30 || firstUpdate) {
 			chrome.storage.sync.set({ timestamp: Date.now() }, function() {
 				var xhr = new XMLHttpRequest();
 				xhr.onreadystatechange = function(data) {
 					if (xhr.readyState == 4) {
 						if (xhr.status == 200) {
 							var data = JSON.parse(xhr.responseText);
-							rightTheWrongs(root, data.wrongs);
+
+							if (data.wrongs) {
+								chrome.storage.sync.set({ wrongs: data.wrongs }, function() {
+									rightTheWrongs(root, data.wrongs);
+								});
+							}
 						}
 					}
 				};
@@ -50,6 +55,9 @@ function updateTheWrongs(root) {
 				xhr.open('GET', url, true);
 				xhr.send();
 			});
+		}
+		else if (item.wrongs) {
+			rightTheWrongs(root, item.wrongs);
 		}
 	});
 }
