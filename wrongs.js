@@ -37,7 +37,7 @@ function updateTheWrongs(root) {
 
 		var timeSinceLastUpdate = (Date.now() - timestamp) / 1000;
 
-		if (timeSinceLastUpdate > 30 || firstUpdate) {
+		if (timeSinceLastUpdate > 3600 || firstUpdate) {
 			storageArea.set({ timestamp: Date.now() }, function() {
 				if (!updatingData) {
 					updatingData = true;
