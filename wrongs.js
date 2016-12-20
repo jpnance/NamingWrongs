@@ -62,9 +62,6 @@ function updateTheWrongs(root) {
 					xhr.open('GET', url, true);
 					xhr.send();
 				}
-				else {
-					console.log('already updating');
-				}
 			});
 		}
 		else if (item.wrongs) {
