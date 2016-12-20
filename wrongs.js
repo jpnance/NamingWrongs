@@ -1,3 +1,5 @@
+var updatingData = false;
+
 var sitePatterns = [
 	/espn.com/,
 	/si.com/,
@@ -20,8 +22,9 @@ var sitePatterns = [
 
 function updateTheWrongs(root) {
 	var timestamp;
+	var storageArea = chrome.storage.sync || chrome.storage.local;
 
-	chrome.storage.sync.get(['timestamp', 'wrongs'], function(item) {
+	storageArea.get(['timestamp', 'wrongs'], function(item) {
 		var firstUpdate = false;
 
 		if (!item.timestamp) {
@@ -35,25 +38,33 @@ function updateTheWrongs(root) {
 		var timeSinceLastUpdate = (Date.now() - timestamp) / 1000;
 
 		if (timeSinceLastUpdate > 30 || firstUpdate) {
-			chrome.storage.sync.set({ timestamp: Date.now() }, function() {
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function(data) {
-					if (xhr.readyState == 4) {
-						if (xhr.status == 200) {
-							var data = JSON.parse(xhr.responseText);
+			storageArea.set({ timestamp: Date.now() }, function() {
+				if (!updatingData) {
+					updatingData = true;
 
-							if (data.wrongs) {
-								chrome.storage.sync.set({ wrongs: data.wrongs }, function() {
-									rightTheWrongs(root, data.wrongs);
-								});
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function(data) {
+						if (xhr.readyState == 4) {
+							if (xhr.status == 200) {
+								var data = JSON.parse(xhr.responseText);
+
+								if (data.wrongs) {
+									storageArea.set({ wrongs: data.wrongs }, function() {
+										rightTheWrongs(root, data.wrongs);
+										updatingData = false;
+									});
+								}
 							}
 						}
-					}
-				};
+					};
 
-				var url = 'http://coinflipper.org/~jpnance/wrongs.json?_=' + Math.random();
-				xhr.open('GET', url, true);
-				xhr.send();
+					var url = 'http://www.coinflipper.org/~jpnance/wrongs.json?_=' + Math.random();
+					xhr.open('GET', url, true);
+					xhr.send();
+				}
+				else {
+					console.log('already updating');
+				}
 			});
 		}
 		else if (item.wrongs) {
