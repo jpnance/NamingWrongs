@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "Naming Wrongs",
-	"version": "2.0",
+	"version": "2.1",
 
 	"description": "Righting naming wrongs.",
 
@@ -17,8 +17,7 @@
 		}
 	],
 
-	"permissions": [
-		"storage",
-		"http://www.coinflipper.org/*"
+	"web_accessible_resources": [
+		"wrongs.json"
 	]
 }

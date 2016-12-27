@@ -20,85 +20,52 @@ var sitePatterns = [
 	/www.ncaa.com/
 ];
 
-function updateTheWrongs(root) {
-	var timestamp;
-	var storageArea = chrome.storage.sync || chrome.storage.local;
+function rightTheWrongs(root, wrongs) {
+	var xhr = new XMLHttpRequest();
 
-	storageArea.get(['timestamp', 'wrongs'], function(item) {
-		var firstUpdate = false;
+	xhr.onreadystatechange = function(data) {
+		if (xhr.readyState == 4) {
+			var data = JSON.parse(xhr.responseText);
+			var wrongs;
 
-		if (!item.timestamp) {
-			timestamp = Date.now();
-			firstUpdate = true;
-		}
-		else {
-			timestamp = item.timestamp;
-		}
+			if (data.wrongs) {
+				wrongs = data.wrongs;
 
-		var timeSinceLastUpdate = (Date.now() - timestamp) / 1000;
-
-		if (timeSinceLastUpdate > 3600 || firstUpdate) {
-			storageArea.set({ timestamp: Date.now() }, function() {
-				if (!updatingData) {
-					updatingData = true;
-
-					var xhr = new XMLHttpRequest();
-					xhr.onreadystatechange = function(data) {
-						if (xhr.readyState == 4) {
-							if (xhr.status == 200) {
-								var data = JSON.parse(xhr.responseText);
-
-								if (data.wrongs) {
-									storageArea.set({ wrongs: data.wrongs }, function() {
-										rightTheWrongs(root, data.wrongs);
-										updatingData = false;
-									});
-								}
+				var iterator = document.createNodeIterator(
+					root,
+					NodeFilter.SHOW_TEXT,
+					{
+						acceptNode: function(node) {
+							if (node.nodeValue.match(/(Arena|Bowl|Center|Centre|Coliseum|Field|Park|Saddledome|Stadium|Superdome)/i)) {
+								return NodeFilter.FILTER_ACCEPT;
 							}
 						}
-					};
+					}
+				);
 
-					var url = 'http://www.coinflipper.org/~jpnance/wrongs.json?_=' + Math.random();
-					xhr.open('GET', url, true);
-					xhr.send();
-				}
-			});
-		}
-		else if (item.wrongs) {
-			rightTheWrongs(root, item.wrongs);
-		}
-	});
-}
+				var node;
 
-function rightTheWrongs(root, wrongs) {
-	var iterator = document.createNodeIterator(
-		root,
-		NodeFilter.SHOW_TEXT,
-		{
-			acceptNode: function(node) {
-				if (node.nodeValue.match(/(Arena|Bowl|Center|Centre|Coliseum|Field|Park|Saddledome|Stadium|Superdome)/i)) {
-					return NodeFilter.FILTER_ACCEPT;
+				while (node = iterator.nextNode()) {
+					for (var i = 0; i < wrongs.length; i++) {
+						var wrong = wrongs[i];
+						var regex = new RegExp(wrong[0]);
+
+						if (node.nodeValue.match(regex)) {
+							node.nodeValue = node.nodeValue.replace(regex, wrong[1]);
+						}
+
+						delete regex;
+					}
 				}
+
+				delete iterator;
 			}
 		}
-	);
+	};
 
-	var node;
-
-	while (node = iterator.nextNode()) {
-		for (var i = 0; i < wrongs.length; i++) {
-			var wrong = wrongs[i];
-			var regex = new RegExp(wrong[0]);
-
-			if (node.nodeValue.match(regex)) {
-				node.nodeValue = node.nodeValue.replace(regex, wrong[1]);
-			}
-
-			delete regex;
-		}
-	}
-
-	delete iterator;
+	var url = chrome.extension.getURL('/wrongs.json');
+	xhr.open('GET', url, true);
+	xhr.send();
 }
 
 function matchesHref(pattern) {
@@ -110,11 +77,11 @@ function matchesHref(pattern) {
 if (sitePatterns.some(matchesHref)) {
 	var observer = new MutationObserver(function(mutations, observer) {
 		mutations.forEach(function(mutation) {
-			updateTheWrongs(mutation.target);
+			rightTheWrongs(mutation.target);
 		});
 	});
 
 	observer.observe(document.body, { childList: true, subtree: true });
 
-	updateTheWrongs(document.body);
+	rightTheWrongs(document.body);
 }

@@ -8,8 +8,9 @@ fi
 mkdir build
 
 cp manifest.json build/
+cp wrongs.json build/
 cp wrongs.js build/
 
 cd build
 
-zip wrongs.zip manifest.json wrongs.js
+zip wrongs.zip manifest.json wrongs.json wrongs.js
